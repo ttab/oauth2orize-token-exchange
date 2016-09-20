@@ -1,0 +1,40 @@
+{
+  "name": "oauth2orize-token-exchange",
+  "version": "0.0.0",
+  "description": "STS token exchange for OAuth2orize.",
+  "keywords": [
+    "oauth",
+    "oauth2",
+    "sts"
+  ],
+  "author": {
+    "name": "Jared Hanson",
+    "email": "jaredhanson@gmail.com",
+    "url": "http://www.jaredhanson.net/"
+  },
+  "repository": {    "type": "git",
+    "url": "git://github.com/jaredhanson/oauth2orize-token-exchange.git"
+  },
+  "bugs": {
+    "url": "http://github.com/jaredhanson/oauth2orize-token-exchange/issues"
+  },
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "./lib",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "make-node": "^0.3.0",
+    "mocha": "^2.0.0",
+    "chai": "^3.0.0",
+    "chai-connect-middleware": "^0.3.1"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha test/*.test.js"
+  }
+}
