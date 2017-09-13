@@ -4,8 +4,14 @@ var chai = require('chai')
 
 describe('exchange.tokenExchange', function() {
   
-  it('should be named device_code', function() {
-    expect(tokenExchange(function(){}).name).to.equal('token_exchange');
+  it('should be unnamed', function() {
+    expect(tokenExchange(function(){}).name).to.equal('');
+  });
+  
+  it('should throw if constructed without a issue callback', function() {
+    expect(function() {
+      tokenExchange();
+    }).to.throw(TypeError, 'oauth2orize.tokenExchange exchange requires an issue callback');
   });
   
   describe('issuing an access token', function() {

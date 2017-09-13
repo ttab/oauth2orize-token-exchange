@@ -11,4 +11,8 @@ describe('oauth2orize-device-code', function() {
     expect(pkg.exchange.tokenExchange).to.be.a('function');
   });
   
+  it('should alias exchanges', function() {
+    expect(pkg.exchange.sts).to.equal(pkg.exchange.tokenExchange);
+  });
+  
 });
