@@ -18,11 +18,11 @@ describe('exchange.tokenExchange', function() {
     var response, err;
 
     before(function(done) {
-      function issue(client, subjectToken, targets, done) {
+      function issue(client, subjectToken, audience, done) {
         if (client.id !== '1') { return done(new Error('incorrect client argument')); }
         if (subjectToken !== 'accVkjcJyb4BWCxGsndESCJQbdFMogUC5PbRDqceLTC') { return done(new Error('incorrect subjectToken argument')); }
-        if (targets.length !== 1 ||
-            targets[0] !== 'https://api.photos.com/albums') {
+        if (audience.length !== 1 ||
+            audience[0] !== 'https://api.photos.com/albums') {
           return done(new Error('incorrect targets argument'));
         }
         
