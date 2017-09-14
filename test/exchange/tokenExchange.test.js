@@ -14,21 +14,26 @@ describe('exchange.tokenExchange', function() {
     }).to.throw(TypeError, 'oauth2orize.tokenExchange exchange requires an issue callback');
   });
   
-  describe('issuing an access token', function() {
+  describe('issuing an access token based on targets', function() {
     var response, err;
 
     before(function(done) {
-      function issue(client, subjectToken, hints, done) {
+      function issue(client, subjectToken, targets, done) {
         if (client.id !== '1') { return done(new Error('incorrect client argument')); }
         if (subjectToken !== 'accVkjcJyb4BWCxGsndESCJQbdFMogUC5PbRDqceLTC') { return done(new Error('incorrect subjectToken argument')); }
+        if (targets.length !== 1 ||
+            targets[0] !== 'https://api.photos.com/albums') {
+          return done(new Error('incorrect targets argument'));
+        }
+        
         return done(null, '2YotnFZFEjr1zCsicMWpAA');
       }
       
       chai.connect.use(tokenExchange(issue))
         .req(function(req) {
-          req.user = { id: '1', name: 'Frontend Service' };
+          req.user = { id: '1', name: 'Photo Printing' };
           req.body = {
-            resource: 'https://backend.example.com/api',
+            resource: 'https://api.photos.com/albums',
             subject_token: 'accVkjcJyb4BWCxGsndESCJQbdFMogUC5PbRDqceLTC',
             subject_token_type: 'urn:ietf:params:oauth:token-type:access_token'
           };
@@ -38,8 +43,6 @@ describe('exchange.tokenExchange', function() {
           done();
         })
         .next(function(err) {
-          console.log(err);
-          console.log(err.stack);
           throw err;
         })
         .dispatch();
