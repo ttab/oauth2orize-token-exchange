@@ -54,13 +54,14 @@ describe('exchange.tokenExchange', function() {
     });
   });
   
-  describe('issuing an access token based on audience, specified using resource', function() {
+  describe('issuing an access token based on scope and audience, specified using resource', function() {
     var response, err;
 
     before(function(done) {
-      function issue(client, subjectToken, audience, done) {
+      function issue(client, subjectToken, scope, audience, done) {
         if (client.id !== '1') { return done(new Error('incorrect client argument')); }
         if (subjectToken !== 'accVkjcJyb4BWCxGsndESCJQbdFMogUC5PbRDqceLTC') { return done(new Error('incorrect subjectToken argument')); }
+        if (scope.length !== 1 || scope[0] !== 'email') { return done(new Error('incorrect scope argument')); }
         if (audience.length !== 1 ||
             audience[0] !== 'https://backend.example.com/api') {
           return done(new Error('incorrect targets argument'));
@@ -74,6 +75,7 @@ describe('exchange.tokenExchange', function() {
           req.user = { id: '1', name: 'frontend.example.com' };
           req.body = {
             resource: 'https://backend.example.com/api',
+            scope: 'email',
             subject_token: 'accVkjcJyb4BWCxGsndESCJQbdFMogUC5PbRDqceLTC',
             subject_token_type: 'urn:ietf:params:oauth:token-type:access_token'
           };
