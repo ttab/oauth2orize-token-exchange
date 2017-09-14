@@ -50,7 +50,7 @@ describe('exchange.tokenExchange', function() {
     });
     
     it('should respond with body', function() {
-      expect(response.body).to.equal('{"access_token":"2YotnFZFEjr1zCsicMWpAA","token_type":"Bearer","issued_token_type":"urn:ietf:params:oauth:token-type:access_token"}');
+      expect(response.body).to.equal('{"access_token":"2YotnFZFEjr1zCsicMWpAA","issued_token_type":"urn:ietf:params:oauth:token-type:access_token","token_type":"Bearer"}');
     });
   });
   
@@ -92,7 +92,7 @@ describe('exchange.tokenExchange', function() {
     });
     
     it('should respond with body', function() {
-      expect(response.body).to.equal('{"access_token":"2YotnFZFEjr1zCsicMWpAA","token_type":"Bearer","issued_token_type":"urn:ietf:params:oauth:token-type:access_token"}');
+      expect(response.body).to.equal('{"access_token":"2YotnFZFEjr1zCsicMWpAA","issued_token_type":"urn:ietf:params:oauth:token-type:access_token","token_type":"Bearer"}');
     });
   });
   
@@ -139,7 +139,7 @@ describe('exchange.tokenExchange', function() {
     });
     
     it('should respond with body', function() {
-      expect(response.body).to.equal('{"access_token":"2YotnFZFEjr1zCsicMWpAA","token_type":"Bearer","issued_token_type":"urn:ietf:params:oauth:token-type:access_token"}');
+      expect(response.body).to.equal('{"access_token":"2YotnFZFEjr1zCsicMWpAA","issued_token_type":"urn:ietf:params:oauth:token-type:access_token","token_type":"Bearer"}');
     });
   });
   
@@ -181,7 +181,7 @@ describe('exchange.tokenExchange', function() {
     });
     
     it('should respond with body', function() {
-      expect(response.body).to.equal('{"access_token":"eyJhbGciOiJFUzI1NiIsImtpZCI6IjcyIn0.eyJhdWQiOiJ1cm46ZXhhbXBsZTpjb29wZXJhdGlvbi1jb250ZXh0IiwiaXNzIjoiaHR0cHM6Ly9hcy5leGFtcGxlLmNvbSIsImV4cCI6MTQ0MTkxMzYxMCwic3ViIjoiYmNAZXhhbXBsZS5uZXQiLCJzY3AiOlsib3JkZXJzIiwiaGlzdG9yeSIsInByb2ZpbGUiXX0.YQHuLmI1YDTugbfEvgGY2gaGBmMyj9BepZSECCBE9j9ogqZv2qx6VQQPrbT1k7vBYGLNMOkkpmmJkxZDS0YV7g","expires_in":3600,"token_type":"Bearer","issued_token_type":"urn:ietf:params:oauth:token-type:access_token"}');
+      expect(response.body).to.equal('{"access_token":"eyJhbGciOiJFUzI1NiIsImtpZCI6IjcyIn0.eyJhdWQiOiJ1cm46ZXhhbXBsZTpjb29wZXJhdGlvbi1jb250ZXh0IiwiaXNzIjoiaHR0cHM6Ly9hcy5leGFtcGxlLmNvbSIsImV4cCI6MTQ0MTkxMzYxMCwic3ViIjoiYmNAZXhhbXBsZS5uZXQiLCJzY3AiOlsib3JkZXJzIiwiaGlzdG9yeSIsInByb2ZpbGUiXX0.YQHuLmI1YDTugbfEvgGY2gaGBmMyj9BepZSECCBE9j9ogqZv2qx6VQQPrbT1k7vBYGLNMOkkpmmJkxZDS0YV7g","expires_in":3600,"issued_token_type":"urn:ietf:params:oauth:token-type:access_token","token_type":"Bearer"}');
     });
   });
   
@@ -225,7 +225,7 @@ describe('exchange.tokenExchange', function() {
     });
     
     it('should respond with body', function() {
-      expect(response.body).to.equal('{"access_token":"eyJhbGciOiJFUzI1NiIsImtpZCI6IjcyIn0.eyJhdWQiOiJ1cm46ZXhhbXBsZTpjb29wZXJhdGlvbi1jb250ZXh0IiwiaXNzIjoiaHR0cHM6Ly9hcy5leGFtcGxlLmNvbSIsImV4cCI6MTQ0MTkxMzYxMCwic2NwIjpbInN0YXR1cyIsImZlZWQiXSwic3ViIjoidXNlckBleGFtcGxlLm5ldCIsImFjdCI6eyJzdWIiOiJhZG1pbkBleGFtcGxlLm5ldCJ9fQ._qjM7Ij_HcrC78omT4jiZTFJOuzsAj1wPo31ymQS-Suqr64S1jCp6pfQR-in_OOAosAGamEg4jyPsht6kMAiYA","issued_token_type":"urn:ietf:params:oauth:token-type:jwt","expires_in":3600,"token_type":"Bearer"}');
+      expect(response.body).to.equal('{"access_token":"eyJhbGciOiJFUzI1NiIsImtpZCI6IjcyIn0.eyJhdWQiOiJ1cm46ZXhhbXBsZTpjb29wZXJhdGlvbi1jb250ZXh0IiwiaXNzIjoiaHR0cHM6Ly9hcy5leGFtcGxlLmNvbSIsImV4cCI6MTQ0MTkxMzYxMCwic2NwIjpbInN0YXR1cyIsImZlZWQiXSwic3ViIjoidXNlckBleGFtcGxlLm5ldCIsImFjdCI6eyJzdWIiOiJhZG1pbkBleGFtcGxlLm5ldCJ9fQ._qjM7Ij_HcrC78omT4jiZTFJOuzsAj1wPo31ymQS-Suqr64S1jCp6pfQR-in_OOAosAGamEg4jyPsht6kMAiYA","issued_token_type":"urn:ietf:params:oauth:token-type:jwt","expires_in":3600,"token_type":"N_A"}');
     });
   });
   
