@@ -85,4 +85,33 @@ describe('exchange.tokenExchange', function() {
     });
   });
   
+  describe('handling a request without subject_token_type parameter', function() {
+    var err;
+
+    before(function(done) {
+      function issue(client, subjectToken, done) {
+        return done(null, 'IGNORE');
+      }
+      
+      chai.connect.use(tokenExchange(issue))
+        .req(function(req) {
+          req.user = { id: '1' };
+          req.body = { subject_token: 'accVkjcJyb4BWCxGsndESCJQbdFMogUC5PbRDqceLTC' };
+        })
+        .next(function(e) {
+          err = e;
+          done();
+        })
+        .dispatch();
+    });
+    
+    it('should error', function() {
+      expect(err).to.be.an.instanceOf(Error);
+      expect(err.constructor.name).to.equal('TokenError');
+      expect(err.message).to.equal('Missing required parameter: subject_token_type');
+      expect(err.code).to.equal('invalid_request');
+      expect(err.status).to.equal(400);
+    });
+  });
+  
 });
