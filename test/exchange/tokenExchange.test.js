@@ -14,7 +14,7 @@ describe('exchange.tokenExchange', function() {
     }).to.throw(TypeError, 'oauth2orize.tokenExchange exchange requires an issue callback');
   });
   
-  describe('issuing an access token based on targets', function() {
+  describe('issuing an access token based on audience', function() {
     var response, err;
 
     before(function(done) {
