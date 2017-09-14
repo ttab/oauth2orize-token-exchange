@@ -62,7 +62,7 @@ describe('exchange.tokenExchange', function() {
         if (client.id !== '1') { return done(new Error('incorrect client argument')); }
         if (subjectToken !== 'accVkjcJyb4BWCxGsndESCJQbdFMogUC5PbRDqceLTC') { return done(new Error('incorrect subjectToken argument')); }
         if (audience.length !== 1 ||
-            audience[0] !== 'https://api.photos.com/albums') {
+            audience[0] !== 'https://backend.example.com/api') {
           return done(new Error('incorrect targets argument'));
         }
         
