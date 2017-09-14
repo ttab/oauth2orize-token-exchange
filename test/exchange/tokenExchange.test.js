@@ -27,7 +27,7 @@ describe('exchange.tokenExchange', function() {
       
       chai.connect.use(tokenExchange(issue))
         .req(function(req) {
-          req.user = { id: '1', name: 'Photo Printing' };
+          req.user = { id: '1', name: 'frontend.example.com' };
           req.body = {
             subject_token: 'accVkjcJyb4BWCxGsndESCJQbdFMogUC5PbRDqceLTC',
             subject_token_type: 'urn:ietf:params:oauth:token-type:access_token'
@@ -71,9 +71,9 @@ describe('exchange.tokenExchange', function() {
       
       chai.connect.use(tokenExchange(issue))
         .req(function(req) {
-          req.user = { id: '1', name: 'Photo Printing' };
+          req.user = { id: '1', name: 'frontend.example.com' };
           req.body = {
-            resource: 'https://api.photos.com/albums',
+            resource: 'https://backend.example.com/api',
             subject_token: 'accVkjcJyb4BWCxGsndESCJQbdFMogUC5PbRDqceLTC',
             subject_token_type: 'urn:ietf:params:oauth:token-type:access_token'
           };
