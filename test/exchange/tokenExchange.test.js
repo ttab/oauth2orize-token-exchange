@@ -147,10 +147,11 @@ describe('exchange.tokenExchange', function() {
     var response, err;
 
     before(function(done) {
-      function issue(client, subjectToken, scope, done) {
+      function issue(client, subjectToken, scope, targets, done) {
         if (client.id !== '1') { return done(new Error('incorrect client argument')); }
         if (subjectToken !== 'eyJhbGciOiJFUzI1NiIsImtpZCI6IjE2In0.eyJhdWQiOiJodHRwczovL2FzLmV4YW1wbGUuY29tIiwiaXNzIjoiaHR0cHM6Ly9vcmlnaW5hbC1pc3N1ZXIuZXhhbXBsZS5uZXQiLCJleHAiOjE0NDE5MTA2MDAsIm5iZiI6MTQ0MTkwOTAwMCwic3ViIjoiYmNAZXhhbXBsZS5uZXQiLCJzY3AiOlsib3JkZXJzIiwicHJvZmlsZSIsImhpc3RvcnkiXX0.JDe7fZ267iIRXwbFmOugyCt5dmGoy6EeuzNQ3MqDek5cCUlyPhQC6cz9laKjK1bnjMQbLJqWix6ZdBI0isjsTA') { return done(new Error('incorrect subjectToken argument')); }
-        //if (scope.length !== 1 || scope[0] !== 'email') { return done(new Error('incorrect scope argument')); }
+        if (scope !== undefined) { return done(new Error('incorrect scope argument')); }
+        if (targets.length !== 1 || targets[0] !== 'urn:example:cooperation-context') { return done(new Error('incorrect targets argument')); }
         
         return done(null, 'eyJhbGciOiJFUzI1NiIsImtpZCI6IjcyIn0.eyJhdWQiOiJ1cm46ZXhhbXBsZTpjb29wZXJhdGlvbi1jb250ZXh0IiwiaXNzIjoiaHR0cHM6Ly9hcy5leGFtcGxlLmNvbSIsImV4cCI6MTQ0MTkxMzYxMCwic3ViIjoiYmNAZXhhbXBsZS5uZXQiLCJzY3AiOlsib3JkZXJzIiwiaGlzdG9yeSIsInByb2ZpbGUiXX0.YQHuLmI1YDTugbfEvgGY2gaGBmMyj9BepZSECCBE9j9ogqZv2qx6VQQPrbT1k7vBYGLNMOkkpmmJkxZDS0YV7g', { expires_in: 3600 });
       }
@@ -189,10 +190,12 @@ describe('exchange.tokenExchange', function() {
     var response, err;
 
     before(function(done) {
-      function issue(client, subjectToken, scope, done) {
+      function issue(client, subjectToken, actorToken, scope, targets, done) {
         if (client.id !== '1') { return done(new Error('incorrect client argument')); }
         if (subjectToken !== 'eyJhbGciOiJFUzI1NiIsImtpZCI6IjE2In0.eyJhdWQiOiJodHRwczovL2FzLmV4YW1wbGUuY29tIiwiaXNzIjoiaHR0cHM6Ly9vcmlnaW5hbC1pc3N1ZXIuZXhhbXBsZS5uZXQiLCJleHAiOjE0NDE5MTAwNjAsInNjcCI6WyJzdGF0dXMiLCJmZWVkIl0sInN1YiI6InVzZXJAZXhhbXBsZS5uZXQiLCJtYXlfYWN0Ijp7InN1YiI6ImFkbWluQGV4YW1wbGUubmV0In19.ut0Ll7wm920VzRvuLGLFoPJLeO5DDElxsax1L_xKUm2eooiNSfuif-OGa2382hPyFYnddKIa0wmDhQksW018Rw') { return done(new Error('incorrect subjectToken argument')); }
+        if (actorToken !== 'eyJhbGciOiJFUzI1NiIsImtpZCI6IjE2In0.eyJhdWQiOiJodHRwczovL2FzLmV4YW1wbGUuY29tIiwiaXNzIjoiaHR0cHM6Ly9vcmlnaW5hbC1pc3N1ZXIuZXhhbXBsZS5uZXQiLCJleHAiOjE0NDE5MTAwNjAsInN1YiI6ImFkbWluQGV4YW1wbGUubmV0In0.7YQ-3zPfhUvzje5oqw8COCvN5uP6NsKik9CVV6cAOf4QKgM-tKfiOwcgZoUuDL2tEs6tqPlcBlMjiSzEjm3yBg') { return done(new Error('incorrect actorToken argument')); }
         if (scope !== undefined) { return done(new Error('incorrect scope argument')); }
+        if (targets.length !== 1 || targets[0] !== 'urn:example:cooperation-context') { return done(new Error('incorrect targets argument')); }
         
         return done(null, 'eyJhbGciOiJFUzI1NiIsImtpZCI6IjcyIn0.eyJhdWQiOiJ1cm46ZXhhbXBsZTpjb29wZXJhdGlvbi1jb250ZXh0IiwiaXNzIjoiaHR0cHM6Ly9hcy5leGFtcGxlLmNvbSIsImV4cCI6MTQ0MTkxMzYxMCwic2NwIjpbInN0YXR1cyIsImZlZWQiXSwic3ViIjoidXNlckBleGFtcGxlLm5ldCIsImFjdCI6eyJzdWIiOiJhZG1pbkBleGFtcGxlLm5ldCJ9fQ._qjM7Ij_HcrC78omT4jiZTFJOuzsAj1wPo31ymQS-Suqr64S1jCp6pfQR-in_OOAosAGamEg4jyPsht6kMAiYA', { issued_token_type: 'urn:ietf:params:oauth:token-type:jwt', expires_in: 3600 });
       }
