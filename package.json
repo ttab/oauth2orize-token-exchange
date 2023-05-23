@@ -1,6 +1,6 @@
 {
   "name": "@ttab/oauth2orize-token-exchange",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "STS token exchange for OAuth2orize.",
   "keywords": [
     "oauth",
