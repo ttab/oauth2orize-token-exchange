@@ -1,5 +1,5 @@
 {
-  "name": "oauth2orize-token-exchange",
+  "name": "@ttab/oauth2orize-token-exchange",
   "version": "0.0.0",
   "description": "STS token exchange for OAuth2orize.",
   "keywords": [
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jaredhanson/oauth2orize-token-exchange.git"
+    "url": "git://github.com/ttab/oauth2orize-token-exchange.git"
   },
   "bugs": {
     "url": "http://github.com/jaredhanson/oauth2orize-token-exchange/issues"
@@ -27,6 +27,9 @@
     }
   ],
   "main": "./lib",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "utils-merge": "^1.0.0"
   },
